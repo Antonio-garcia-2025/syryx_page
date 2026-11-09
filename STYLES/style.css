@@ -278,8 +278,15 @@ a {
     border-radius: 1.25rem;
     background: linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.025));
     color: white;
+    font: inherit;
+    text-align: left;
     text-decoration: none;
     transition: transform 180ms ease, border-color 180ms ease, background-color 180ms ease;
+}
+
+.lyricsList .platformCard {
+    width: 100%;
+    cursor: pointer;
 }
 
 .platformCard:hover {
@@ -315,8 +322,36 @@ a {
     margin-top: 2rem;
 }
 
+.lyricsSite {
+    --lyrics-black: #101010;
+    --lyrics-red: #e50914;
+    --lyrics-gray: #292929;
+    --lyrics-white: #ffffff;
+    background-color: var(--lyrics-black);
+}
+
 .lyricsPage {
     place-items: start center;
+    background:
+        radial-gradient(ellipse at 82% 18%, rgba(229, 9, 20, 0.16), transparent 34rem),
+        radial-gradient(ellipse at 10% 90%, rgba(41, 41, 41, 0.5), transparent 28rem),
+        var(--lyrics-black);
+}
+
+.lyricsPage::before {
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+}
+
+.lyricsSite .siteHeader {
+    border-color: rgba(255, 255, 255, 0.16);
+    background: rgba(16, 16, 16, 0.88);
+}
+
+.lyricsSite .siteHeader .siteBrand,
+.lyricsSite .siteHeader nav a:hover {
+    color: var(--lyrics-red);
 }
 
 .lyricsContent {
@@ -330,15 +365,19 @@ a {
 
 .lyricsIntro h1 {
     margin: 0;
-    color: white;
+    color: var(--lyrics-white);
     font-size: clamp(2.8rem, 8vw, 5.5rem);
     letter-spacing: -0.07em;
     line-height: 0.98;
 }
 
+.lyricsPage .musicEyebrow {
+    color: var(--lyrics-red);
+}
+
 .lyricsLead {
     margin: 1.25rem 0 0;
-    color: rgba(255, 255, 255, 0.72);
+    color: rgba(255, 255, 255, 0.78);
     font-size: clamp(1rem, 2vw, 1.2rem);
     line-height: 1.6;
 }
@@ -347,7 +386,7 @@ a {
     width: min(100%, 25rem);
     margin: 0 0 clamp(2rem, 4vw, 3rem);
     overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.16);
+    border: 1px solid var(--lyrics-gray);
     border-radius: 1.25rem;
     box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.4);
 }
@@ -357,6 +396,89 @@ a {
     width: 100%;
     aspect-ratio: 1;
     object-fit: cover;
+}
+
+.lyricsList .platformCard {
+    border-color: var(--lyrics-gray);
+    background: linear-gradient(145deg, var(--lyrics-gray), var(--lyrics-black));
+    color: var(--lyrics-white);
+}
+
+.lyricsList .platformCard:hover {
+    border-color: var(--lyrics-red);
+    background: linear-gradient(145deg, rgba(229, 9, 20, 0.16), var(--lyrics-black));
+}
+
+.lyricsList .platformCard:focus-visible {
+    outline-color: var(--lyrics-red);
+}
+
+.lyricsList .platformNumber,
+.lyricsList .platformArrow {
+    color: var(--lyrics-red);
+}
+
+.lyricsViewer {
+    margin-top: clamp(2rem, 5vw, 3.5rem);
+    overflow: hidden;
+    border: 1px solid var(--lyrics-gray);
+    border-radius: 1.25rem;
+    background: var(--lyrics-black);
+}
+
+.lyricsViewer[hidden] {
+    display: none;
+}
+
+.lyricsViewerHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.25rem clamp(1rem, 3vw, 1.75rem);
+}
+
+.lyricsViewerHeader .platformNumber {
+    margin: 0 0 0.5rem;
+}
+
+.lyricsViewerHeader h2 {
+    margin: 0;
+    color: var(--lyrics-white);
+    font-size: clamp(1.4rem, 4vw, 2rem);
+}
+
+.lyricsViewerHeader .platformNumber {
+    color: var(--lyrics-red);
+}
+
+.lyricsClose {
+    flex: 0 0 auto;
+    padding: 0.65rem 1rem;
+    border: 1px solid var(--lyrics-red);
+    border-radius: 999px;
+    background: transparent;
+    color: var(--lyrics-white);
+    font: inherit;
+    cursor: pointer;
+}
+
+.lyricsClose:hover {
+    background: rgba(229, 9, 20, 0.18);
+}
+
+.lyricsClose:focus-visible {
+    outline: 2px solid var(--lyrics-red);
+    outline-offset: 4px;
+}
+
+.lyricsFrame {
+    display: block;
+    width: 100%;
+    height: min(65vh, 42rem);
+    min-height: 24rem;
+    border: 0;
+    border-top: 1px solid var(--lyrics-gray);
 }
 
 .aboutPage {
