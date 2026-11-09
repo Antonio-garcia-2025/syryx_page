@@ -5,10 +5,17 @@
     box-sizing: border-box;
 }
 
+:root {
+    --color-black: #101010;
+    --color-red: #e50914;
+    --color-gray: #292929;
+    --color-white: #ffffff;
+}
+
 body {
     margin: 0;
-    background-color: black;
-    color: greenyellow;
+    background-color: var(--color-black);
+    color: var(--color-white);
     font-family: Arial, sans-serif;
 }
 
@@ -44,9 +51,9 @@ body {
     width: min(76rem, calc(100% - 3rem));
     padding: 0.85rem clamp(1rem, 3vw, 1.75rem);
     transform: translateX(-50%);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid var(--color-gray);
     border-radius: 999px;
-    background: rgba(0, 0, 0, 0.62);
+    background: rgba(16, 16, 16, 0.88);
     backdrop-filter: blur(12px);
 }
 
@@ -66,17 +73,17 @@ body {
 }
 
 .siteHeader .siteBrand {
-    color: greenyellow;
+    color: var(--color-red);
     font-size: clamp(1rem, 2.5vw, 1.35rem);
     letter-spacing: 0.12em;
 }
 
 .siteHeader nav a:hover {
-    color: greenyellow;
+    color: var(--color-red);
 }
 
 .siteHeader a:focus-visible {
-    outline: 2px solid greenyellow;
+    outline: 2px solid var(--color-red);
     outline-offset: 5px;
 }
 
@@ -114,7 +121,7 @@ body {
 
 .heroContent .heroEyebrow {
     margin: 0 0 1.25rem 0.45rem;
-    color: greenyellow;
+    color: var(--color-red);
     font-size: clamp(0.7rem, 1.5vw, 0.95rem);
     font-weight: 700;
     letter-spacing: 0.28em;
@@ -133,9 +140,9 @@ body {
     gap: 1.5rem;
     margin-left: 0.45rem;
     padding: 0.95rem 1.25rem;
-    border: 1px solid rgba(173, 255, 47, 0.7);
+    border: 1px solid rgba(229, 9, 20, 0.75);
     border-radius: 999px;
-    background: rgba(173, 255, 47, 0.1);
+    background: rgba(229, 9, 20, 0.1);
     color: white;
     font-size: 0.95rem;
     font-weight: 700;
@@ -145,21 +152,21 @@ body {
 
 .heroButton:hover {
     transform: translateY(-2px);
-    background: rgba(173, 255, 47, 0.2);
+    background: rgba(229, 9, 20, 0.2);
 }
 
 .heroButton:focus-visible {
-    outline: 2px solid greenyellow;
+    outline: 2px solid var(--color-red);
     outline-offset: 4px;
 }
 
 .heroButton span {
-    color: greenyellow;
+    color: var(--color-red);
     font-size: 1.15rem;
 }
 
 a {
-    color: greenyellow;
+    color: var(--color-red);
 }
 
 .secondContainer {
@@ -187,10 +194,10 @@ a {
     margin-top: 1.5rem;
     width: 3.25rem;
     height: 3.25rem;
-    border: 1px solid rgba(173, 255, 47, 0.55);
+    border: 1px solid rgba(229, 9, 20, 0.65);
     border-radius: 50%;
-    background-color: rgba(173, 255, 47, 0.08);
-    color: greenyellow;
+    background-color: rgba(229, 9, 20, 0.08);
+    color: var(--color-red);
     font-size: 1.75rem;
     line-height: 1;
     text-decoration: none;
@@ -199,11 +206,11 @@ a {
 
 .backButton:hover {
     transform: translateX(-3px);
-    background-color: rgba(173, 255, 47, 0.18);
+    background-color: rgba(229, 9, 20, 0.18);
 }
 
 .backButton:focus-visible {
-    outline: 2px solid greenyellow;
+    outline: 2px solid var(--color-red);
     outline-offset: 4px;
 }
 
@@ -216,9 +223,9 @@ a {
     overflow: hidden;
     padding: 8rem clamp(1.25rem, 6vw, 5rem) 3rem;
     background:
-        radial-gradient(ellipse at 82% 18%, rgba(173, 255, 47, 0.13), transparent 34rem),
-        radial-gradient(ellipse at 10% 90%, rgba(91, 125, 24, 0.12), transparent 28rem),
-        #080a07;
+        radial-gradient(ellipse at 82% 18%, rgba(229, 9, 20, 0.16), transparent 34rem),
+        radial-gradient(ellipse at 10% 90%, rgba(41, 41, 41, 0.6), transparent 28rem),
+        var(--color-black);
 }
 
 .musicPage::before {
@@ -238,7 +245,7 @@ a {
 
 .musicEyebrow {
     margin: 0 0 1rem;
-    color: greenyellow;
+    color: var(--color-red);
     font-size: 0.75rem;
     font-weight: 700;
     letter-spacing: 0.28em;
@@ -253,7 +260,7 @@ a {
 }
 
 .musicContent h1 span {
-    color: greenyellow;
+    color: var(--color-red);
 }
 
 .musicIntro {
@@ -274,9 +281,9 @@ a {
     flex-direction: column;
     justify-content: space-between;
     padding: clamp(1.25rem, 3vw, 2rem);
-    border: 1px solid rgba(255, 255, 255, 0.12);
+    border: 1px solid var(--color-gray);
     border-radius: 1.25rem;
-    background: linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.025));
+    background: linear-gradient(145deg, var(--color-gray), var(--color-black));
     color: white;
     font: inherit;
     text-align: left;
@@ -291,17 +298,17 @@ a {
 
 .platformCard:hover {
     transform: translateY(-5px);
-    border-color: rgba(173, 255, 47, 0.6);
-    background-color: rgba(173, 255, 47, 0.07);
+    border-color: rgba(229, 9, 20, 0.7);
+    background-color: rgba(229, 9, 20, 0.09);
 }
 
 .platformCard:focus-visible {
-    outline: 2px solid greenyellow;
+    outline: 2px solid var(--color-red);
     outline-offset: 4px;
 }
 
 .platformNumber {
-    color: rgba(173, 255, 47, 0.75);
+    color: var(--color-red);
     font-size: 0.8rem;
     font-weight: 700;
     letter-spacing: 0.15em;
@@ -314,7 +321,7 @@ a {
 
 .platformArrow {
     align-self: flex-end;
-    color: greenyellow;
+    color: var(--color-red);
     font-size: 1.35rem;
 }
 
@@ -323,11 +330,42 @@ a {
 }
 
 .lyricsSite {
-    --lyrics-black: #101010;
-    --lyrics-red: #e50914;
-    --lyrics-gray: #292929;
-    --lyrics-white: #ffffff;
+    --lyrics-black: var(--color-black);
+    --lyrics-red: var(--color-red);
+    --lyrics-gray: var(--color-gray);
+    --lyrics-white: var(--color-white);
     background-color: var(--lyrics-black);
+    scroll-behavior: smooth;
+}
+
+.scrollTopButton {
+    position: fixed;
+    z-index: 5;
+    right: clamp(1rem, 4vw, 2rem);
+    bottom: clamp(1rem, 4vw, 2rem);
+    display: grid;
+    width: 3.25rem;
+    height: 3.25rem;
+    place-items: center;
+    border: 1px solid rgba(229, 9, 20, 0.75);
+    border-radius: 50%;
+    background: rgba(229, 9, 20, 0.1);
+    color: var(--color-red);
+    font-size: 1.8rem;
+    font-weight: 700;
+    line-height: 1;
+    text-decoration: none;
+    transition: transform 180ms ease, background-color 180ms ease;
+}
+
+.scrollTopButton:hover {
+    transform: translateY(-3px);
+    background: rgba(229, 9, 20, 0.2);
+}
+
+.scrollTopButton:focus-visible {
+    outline: 2px solid var(--color-white);
+    outline-offset: 4px;
 }
 
 .lyricsPage {
@@ -504,7 +542,7 @@ a {
 }
 
 .aboutIntro h1 span {
-    color: greenyellow;
+    color: var(--color-red);
 }
 
 .aboutLead {
@@ -524,13 +562,13 @@ a {
 .aboutCard {
     min-height: 13rem;
     padding: clamp(1.4rem, 3vw, 2rem);
-    border: 1px solid rgba(255, 255, 255, 0.12);
+    border: 1px solid var(--color-gray);
     border-radius: 1.25rem;
-    background: linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.025));
+    background: linear-gradient(145deg, var(--color-gray), var(--color-black));
 }
 
 .aboutNumber {
-    color: rgba(173, 255, 47, 0.75);
+    color: var(--color-red);
     font-size: 0.8rem;
     font-weight: 700;
     letter-spacing: 0.15em;
@@ -555,9 +593,9 @@ a {
     gap: 2rem;
     margin-top: 1rem;
     padding: clamp(1.4rem, 3vw, 2rem);
-    border: 1px solid rgba(173, 255, 47, 0.22);
+    border: 1px solid rgba(229, 9, 20, 0.35);
     border-radius: 1.25rem;
-    background: rgba(173, 255, 47, 0.045);
+    background: rgba(41, 41, 41, 0.5);
 }
 
 .aboutClosing > p {
@@ -589,21 +627,31 @@ a {
 
 .aboutTextLink span {
     margin-left: 0.25rem;
-    color: greenyellow;
+    color: var(--color-red);
 }
 
 .aboutTextLink:hover {
-    color: greenyellow;
+    color: var(--color-red);
 }
 
 .aboutTextLink:focus-visible {
-    outline: 2px solid greenyellow;
+    outline: 2px solid var(--color-red);
     outline-offset: 4px;
 }
 
 @media (max-width: 480px) {
     .secondContainer p {
         text-align: left;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .lyricsSite {
+            scroll-behavior: auto;
+        }
+
+        .scrollTopButton {
+            transition: none;
+        }
     }
 
     .siteHeader {
