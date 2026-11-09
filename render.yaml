@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: syryx-page
+    runtime: static
+    buildCommand: ""
+    staticPublishPath: .
