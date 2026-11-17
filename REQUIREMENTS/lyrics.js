@@ -4,6 +4,18 @@ const lyricsFrame = document.querySelector("#lyricsFrame");
 const closeLyricsButton = document.querySelector("#closeLyrics");
 let selectedLyricsButton = null;
 
+document.querySelectorAll(".lyricsAlbumButton").forEach((button) => {
+    const tracklist = document.getElementById(button.getAttribute("aria-controls"));
+    const actionLabel = button.querySelector(".lyricsAlbumAction");
+
+    button.addEventListener("click", () => {
+        const isExpanded = button.getAttribute("aria-expanded") === "true";
+        button.setAttribute("aria-expanded", String(!isExpanded));
+        tracklist.hidden = isExpanded;
+        actionLabel.textContent = isExpanded ? "View tracklist" : "Hide tracklist";
+    });
+});
+
 document.querySelectorAll(".lyricsList [data-lyrics]").forEach((button) => {
     button.setAttribute("aria-controls", "lyricsViewer");
     button.setAttribute("aria-expanded", "false");
@@ -28,9 +40,12 @@ closeLyricsButton.addEventListener("click", () => {
 
     if (selectedLyricsButton) {
         selectedLyricsButton.setAttribute("aria-expanded", "false");
-        selectedLyricsButton.focus();
         selectedLyricsButton = null;
     }
+
+    const albumButton = document.querySelector(".lyricsAlbumButton");
+    albumButton.focus({ preventScroll: true });
+    albumButton.scrollIntoView({ behavior: "smooth", block: "start" });
 });
 
 lyricsFrame.addEventListener("load", () => {

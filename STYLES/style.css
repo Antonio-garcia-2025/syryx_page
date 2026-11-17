@@ -427,12 +427,27 @@ a {
 }
 
 .lyricsArtwork {
+    position: relative;
+    display: block;
     width: min(100%, 25rem);
     margin: 0 0 clamp(2rem, 4vw, 3rem);
+    padding: 0;
     overflow: hidden;
     border: 1px solid var(--lyrics-gray);
     border-radius: 1.25rem;
     box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.4);
+}
+
+.lyricsAlbumButton {
+    background: var(--lyrics-black);
+    cursor: pointer;
+    font: inherit;
+    text-align: left;
+}
+
+.lyricsAlbumButton:focus-visible {
+    outline: 2px solid var(--lyrics-red);
+    outline-offset: 4px;
 }
 
 .lyricsArtwork img {
@@ -440,6 +455,22 @@ a {
     width: 100%;
     aspect-ratio: 1;
     object-fit: cover;
+}
+
+.lyricsAlbumAction {
+    position: absolute;
+    inset: auto 0 0;
+    padding: 1.25rem 1rem 1rem;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.85));
+    color: var(--lyrics-white);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.lyricsList[hidden] {
+    display: none;
 }
 
 .lyricsList .platformCard {
