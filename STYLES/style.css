@@ -200,6 +200,7 @@ a {
     color: var(--color-red);
     font-size: 1.75rem;
     line-height: 1;
+    text-align: center;
     text-decoration: none;
     transition: background-color 180ms ease, transform 180ms ease;
 }
@@ -207,6 +208,11 @@ a {
 .backButton:hover {
     transform: translateX(-3px);
     background-color: rgba(229, 9, 20, 0.18);
+}
+
+.backArrow {
+    display: inline-block;
+    transform: translateY(-2px);
 }
 
 .backButton:focus-visible {
