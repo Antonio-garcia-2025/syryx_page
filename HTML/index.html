@@ -8,28 +8,61 @@
 </head>
 <body>
 
-    <main class="firstContainer">
+    <main>
+        <section class="firstContainer" aria-labelledby="homeTitle">
 
-        <div class="imagen">
+            <div class="imagen">
 
-            <img src="../images/syryx.jpg" alt="SYRYX Band Image">
-        </div>
+                <img src="../images/syryx.jpg" alt="SYRYX Band Image">
+            </div>
 
-        <header class="siteHeader">
-            <a class="siteBrand" href="index.html">SYRYX</a>
-            <nav aria-label="Main navigation">
-                <a href="song.html">Songs</a>
-                <a href="music.html">Listen</a>
-            </nav>
-        </header>
-        <div class="heroContent">
-            <p class="heroEyebrow">MUSIC · ROCK · SOUND · IDENTITY</p>
-            <h1>SYRYX</h1>
-            <p class="heroIntro">Welcome to the sound of SYRYX.</p>
-            <a class="heroButton" href="aboutus.html">
-                Discover our story <span aria-hidden="true">↗</span>
-            </a>
-        </div>
+            <header class="siteHeader">
+                <a class="siteBrand" href="index.html">SYRYX</a>
+                <nav aria-label="Main navigation">
+                    <a href="song.html">Songs</a>
+                    <a href="music.html">Listen</a>
+                </nav>
+            </header>
+            <div class="heroContent">
+                <p class="heroEyebrow">MUSIC · ROCK · SOUND · IDENTITY</p>
+                <h1 id="homeTitle">SYRYX</h1>
+                <p class="heroIntro">Welcome to the sound of SYRYX.</p>
+                <div class="heroActions">
+                    <a class="heroButton" href="song.html">
+                        Explore albums <span aria-hidden="true">↗</span>
+                    </a>
+                    <a class="heroSecondaryLink" href="aboutus.html">
+                        Discover our story <span aria-hidden="true">→</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="homeAlbums" aria-labelledby="homeAlbumsTitle">
+            <header class="homeAlbumsHeader">
+                <p class="musicEyebrow">THE MUSIC</p>
+                <h2 id="homeAlbumsTitle">Explore the albums</h2>
+                <p>Choose an album to discover its songs and lyrics.</p>
+            </header>
+            <div class="homeAlbumsGrid">
+                <a class="homeAlbumCard" href="song.html#ashes-in-the-storm">
+                    <img src="../images/portada.jpeg" alt="">
+                    <span class="homeAlbumDetails">
+                        <span class="homeAlbumNumber">ALBUM 01</span>
+                        <span class="homeAlbumTitle">Ashes in the Storm</span>
+                        <span class="homeAlbumAction">Explore album <span aria-hidden="true">→</span></span>
+                    </span>
+                </a>
+                <a class="homeAlbumCard" href="song.html#dont-fall">
+                    <img src="../images/albumtwo.jpeg" alt="">
+                    <span class="homeAlbumDetails">
+                        <span class="homeAlbumNumber">ALBUM 02</span>
+                        <span class="homeAlbumTitle">Don't Fall</span>
+                        <span class="homeAlbumAction">Explore album <span aria-hidden="true">→</span></span>
+                    </span>
+                </a>
+            </div>
+        </section>
     </main>
 </body>
 </html>

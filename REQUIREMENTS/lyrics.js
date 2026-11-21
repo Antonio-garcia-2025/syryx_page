@@ -1,8 +1,37 @@
 const lyricsViewer = document.querySelector("#lyricsViewer");
 const lyricsTitle = document.querySelector("#selectedLyricsTitle");
 const lyricsFrame = document.querySelector("#lyricsFrame");
+const lyricsPlayerFrame = document.querySelector("#lyricsPlayerFrame");
+const lyricsPlayerOptions = document.querySelector("#lyricsPlayerOptions");
+const lyricsPlaybackNote = document.querySelector("#lyricsPlaybackNote");
+const lyricsPlayerUnavailable = document.querySelector("#lyricsPlayerUnavailable");
 const closeLyricsButton = document.querySelector("#closeLyrics");
 let selectedLyricsButton = null;
+let selectedAlbum = null;
+const musicPlayerNames = {
+    spotify: "Spotify",
+    appleMusic: "Apple Music",
+    youtubeMusic: "YouTube Music"
+};
+
+function selectMusicPlayer(playerName) {
+    const playerUrl = selectedAlbum?.dataset[`${playerName}Embed`];
+
+    if (!playerUrl) {
+        return;
+    }
+
+    lyricsPlayerFrame.src = playerUrl;
+    lyricsPlayerFrame.title = `${musicPlayerNames[playerName]} player for ${selectedAlbum.querySelector(".lyricsAlbumTitle").textContent}`;
+
+    document.querySelectorAll(".lyricsPlayerOption").forEach((button) => {
+        button.setAttribute("aria-pressed", String(button.dataset.player === playerName));
+    });
+}
+
+document.querySelectorAll(".lyricsPlayerOption").forEach((button) => {
+    button.addEventListener("click", () => selectMusicPlayer(button.dataset.player));
+});
 
 document.querySelectorAll(".lyricsAlbumButton").forEach((button) => {
     const tracklist = document.getElementById(button.getAttribute("aria-controls"));
@@ -26,9 +55,27 @@ document.querySelectorAll(".lyricsList [data-lyrics]").forEach((button) => {
 
         selectedLyricsButton = button;
         selectedLyricsButton.setAttribute("aria-expanded", "true");
+        selectedAlbum = button.closest(".lyricsAlbum");
         lyricsTitle.textContent = button.dataset.title;
         lyricsFrame.title = `Lyrics for ${button.dataset.title}`;
         lyricsFrame.src = button.dataset.lyrics;
+        const availablePlayers = Object.keys(musicPlayerNames).filter((player) => selectedAlbum.dataset[`${player}Embed`]);
+        lyricsPlayerOptions.hidden = availablePlayers.length === 0;
+        lyricsPlayerOptions.querySelectorAll(".lyricsPlayerOption").forEach((playerButton) => {
+            playerButton.hidden = !availablePlayers.includes(playerButton.dataset.player);
+        });
+        lyricsPlayerUnavailable.hidden = availablePlayers.length > 0;
+        lyricsPlaybackNote.textContent = availablePlayers.length > 0
+            ? `The full ${selectedAlbum.querySelector(".lyricsAlbumTitle").textContent} album plays here; the selected song may not start automatically.`
+            : `Listening links for ${selectedAlbum.querySelector(".lyricsAlbumTitle").textContent} will be added when available.`;
+        if (availablePlayers.length > 0) {
+            selectMusicPlayer(availablePlayers[0]);
+            lyricsPlayerFrame.hidden = false;
+        } else {
+            lyricsPlayerFrame.src = "about:blank";
+            lyricsPlayerFrame.hidden = true;
+        }
+        document.querySelector(".lyricsPage").classList.add("isReading");
         lyricsViewer.hidden = false;
         lyricsViewer.scrollIntoView({ behavior: "smooth", block: "start" });
     });
@@ -37,13 +84,20 @@ document.querySelectorAll(".lyricsList [data-lyrics]").forEach((button) => {
 closeLyricsButton.addEventListener("click", () => {
     lyricsViewer.hidden = true;
     lyricsFrame.src = "about:blank";
+    lyricsPlayerFrame.src = "about:blank";
+    document.querySelector(".lyricsPage").classList.remove("isReading");
+
+    const albumToReturnTo = selectedAlbum;
 
     if (selectedLyricsButton) {
         selectedLyricsButton.setAttribute("aria-expanded", "false");
         selectedLyricsButton = null;
     }
 
-    const albumButton = document.querySelector(".lyricsAlbumButton");
+    const albumButton = albumToReturnTo
+        ? albumToReturnTo.querySelector(".lyricsAlbumButton")
+        : document.querySelector(".lyricsAlbumButton");
+    selectedAlbum = null;
     albumButton.focus({ preventScroll: true });
     albumButton.scrollIntoView({ behavior: "smooth", block: "start" });
 });
